@@ -15,7 +15,6 @@
  */
 package com.android.tools.idea
 
-import com.intellij.idea.customization.base.IntelliJIdeaExternalResourceUrls
 import com.intellij.openapi.application.ApplicationInfo
 import com.intellij.openapi.application.PermanentInstallationID
 import com.intellij.openapi.application.ex.ApplicationInfoEx
@@ -23,6 +22,7 @@ import com.intellij.openapi.updateSettings.impl.ExternalUpdateManager
 import com.intellij.openapi.util.BuildNumber
 import com.intellij.openapi.util.SystemInfo
 import com.intellij.platform.ide.customization.ExternalProductResourceUrls
+import com.intellij.platform.ide.impl.customization.BaseIntelliJIdeaExternalResourceUrls
 import com.intellij.util.Url
 import com.intellij.util.Urls
 import org.jetbrains.annotations.VisibleForTesting
@@ -33,7 +33,7 @@ class AndroidStudioResourceUrls : ExternalProductResourceUrls {
     private val UPDATE_BASE_URL: String = System.getenv("AS_UPDATE_URL") ?: "https://dl.google.com/android/studio/patches"
   }
 
-  private val jetbrainsUrls = IntelliJIdeaExternalResourceUrls()
+  private val jetbrainsUrls = BaseIntelliJIdeaExternalResourceUrls()
 
   // We add the extra parameters below when querying updateMetadataUrl. On the server-side these are used for analytics, to aggregate
   // usage counts by build version number, operating system, etc. Do not remove any of these without checking the consuming code!
